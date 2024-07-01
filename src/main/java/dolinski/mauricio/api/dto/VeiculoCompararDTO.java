@@ -1,6 +1,9 @@
 package dolinski.mauricio.api.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Positive;
+import jakarta.validation.constraints.Digits;
 import jakarta.ws.rs.FormParam;
 
 public class VeiculoCompararDTO {
@@ -16,13 +19,15 @@ public class VeiculoCompararDTO {
     @FormParam("modelo")
     String modelo;
 
-    @NotBlank(message = "Campo ano não pode ser vazio")
+    @NotNull(message = "Campo ano2 não pode ser nulo")
+    @Digits(message = "Campo ano2 deve conter 4 numeros", fraction = 0, integer = 4)
+    @Positive(message = "Numero deve ser positivo")
     @FormParam("ano")
     int ano;
 
     @NotBlank(message = "Campo veiculo2 não pode ser vazio")
     @FormParam("veiculo2")
-    int tipoVeiculo2;
+    String tipoVeiculo2;
 
     @NotBlank(message = "Campo marca2 não pode ser vazio")
     @FormParam("marca2")
@@ -32,7 +37,9 @@ public class VeiculoCompararDTO {
     @FormParam("modelo2")
     String modelo2;
 
-    @NotBlank(message = "Campo ano2 não pode ser vazio")
+    @NotNull(message = "Campo ano2 não pode ser nulo")
+    @Digits(message = "Campo ano2 deve conter 4 numeros", fraction = 0, integer = 4)
+    @Positive(message = "Numero deve ser positivo")
     @FormParam("ano2")
     int ano2;
 
@@ -71,11 +78,11 @@ public class VeiculoCompararDTO {
         this.ano = ano;
     }
 
-    public int getTipoVeiculo2() {
+    public String getTipoVeiculo2() {
         return this.tipoVeiculo2;
     }
 
-    public void setTipoVeiculo2(int tipoVeiculo2) {
+    public void setTipoVeiculo2(String tipoVeiculo2) {
         this.tipoVeiculo2 = tipoVeiculo2;
     }
 
@@ -104,5 +111,20 @@ public class VeiculoCompararDTO {
     }
 
     public VeiculoCompararDTO() {};
+
+
+    @Override
+    public String toString() {
+        return "{" +
+            " tipoVeiculo='" + getTipoVeiculo() + "'" +
+            ", marca='" + getMarca() + "'" +
+            ", modelo='" + getModelo() + "'" +
+            ", ano='" + getAno() + "'" +
+            ", tipoVeiculo2='" + getTipoVeiculo2() + "'" +
+            ", marca2='" + getMarca2() + "'" +
+            ", modelo2='" + getModelo2() + "'" +
+            ", ano2='" + getAno2() + "'" +
+            "}";
+    }
 
 }
