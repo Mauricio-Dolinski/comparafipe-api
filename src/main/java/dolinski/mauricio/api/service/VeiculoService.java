@@ -1,7 +1,6 @@
 package dolinski.mauricio.api.service;
 
 import org.jboss.resteasy.reactive.RestResponse;
-
 import dolinski.mauricio.api.dto.VeiculoCompararDTO;
 import org.jboss.resteasy.reactive.RestResponse.ResponseBuilder;
 
