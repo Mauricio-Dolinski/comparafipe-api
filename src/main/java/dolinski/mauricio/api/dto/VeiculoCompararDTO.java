@@ -2,13 +2,13 @@ package dolinski.mauricio.api.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
-import jakarta.validation.constraints.Positive;
-import jakarta.validation.constraints.Digits;
+import jakarta.validation.constraints.Pattern;
 import jakarta.ws.rs.FormParam;
 
 public class VeiculoCompararDTO {
-    @NotBlank(message = "Campo veiculo não pode ser vazio")
-    @FormParam("veiculo")
+    @NotBlank(message = "Campo tipoVeiculo não pode ser vazio")
+    @Pattern(regexp = "^(carros|motos|caminhoes)$", message = "Campo tipoVeiculo deve conter carros ou motos ou caminhoes")
+    @FormParam("tipoVeiculo")
     String tipoVeiculo;
 
     @NotBlank(message = "Campo marca não pode ser vazio")
@@ -20,13 +20,12 @@ public class VeiculoCompararDTO {
     String modelo;
 
     @NotNull(message = "Campo ano2 não pode ser nulo")
-    @Digits(message = "Campo ano2 deve conter 4 numeros", fraction = 0, integer = 4)
-    @Positive(message = "Numero deve ser positivo")
     @FormParam("ano")
-    int ano;
+    String ano;
 
-    @NotBlank(message = "Campo veiculo2 não pode ser vazio")
-    @FormParam("veiculo2")
+    @NotBlank(message = "Campo tipoVeiculo2 não pode ser vazio")
+    @Pattern(regexp = "^(carros|motos|caminhoes)$", message = "Campo tipoVeiculo2 deve conter carros ou motos ou caminhoes")
+    @FormParam("tipoVeiculo2")
     String tipoVeiculo2;
 
     @NotBlank(message = "Campo marca2 não pode ser vazio")
@@ -38,10 +37,8 @@ public class VeiculoCompararDTO {
     String modelo2;
 
     @NotNull(message = "Campo ano2 não pode ser nulo")
-    @Digits(message = "Campo ano2 deve conter 4 numeros", fraction = 0, integer = 4)
-    @Positive(message = "Numero deve ser positivo")
     @FormParam("ano2")
-    int ano2;
+    String ano2;
 
     //MesReferencia: "junho de 2024"
 
@@ -70,11 +67,11 @@ public class VeiculoCompararDTO {
         this.modelo = modelo;
     }
 
-    public int getAno() {
+    public String getAno() {
         return this.ano;
     }
 
-    public void setAno(int ano) {
+    public void setAno(String ano) {
         this.ano = ano;
     }
 
@@ -102,11 +99,11 @@ public class VeiculoCompararDTO {
         this.modelo2 = modelo2;
     }
 
-    public int getAno2() {
+    public String getAno2() {
         return this.ano2;
     }
 
-    public void setAno2(int ano2) {
+    public void setAno2(String ano2) {
         this.ano2 = ano2;
     }
 
