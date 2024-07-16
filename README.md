@@ -8,9 +8,9 @@ A ComparaFIPE é uma API que consulta preços de veículos com base na tabela FI
 | --------------------  | -------
 | :label:Tecnologias | Java, Quarkus, Swagger, OpenAPI
 | :sparkles: Objetivo   | API que consulta preços de veículos com base na tabela FIPE.
-| :rocket: URL        | https://comparafipe-api-11111111.herokuapp.com/q/swagger-ui/
+| :rocket: URL        | https://comparafipe-api-a410dd064353.herokuapp.com/q/swagger-ui/
 | :fire: Desafios     | Permitir que os usuários analisem e comparem preços ao longo do tempo.
 
 # Swagger UI
 
-![](https://i.imgur.com/j7kaHLQ.png)
+![](https://i.imgur.com/AInBqf3.png)
